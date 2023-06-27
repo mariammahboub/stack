@@ -4,78 +4,56 @@ namespace ConsoleApp1
 {
     internal class StackQ1
     {
+            public class Node
+        {
+            public int data;
+            public Node next;
+        }
+        public class Stack
+        {
+            private Node top = null;
+
+            public void push(int value)
+            {
+                Node newNode = new Node();
+                newNode.data = value;
+                if (isEmpty())
+                {
+                    newNode.next = null;
+                }
+                else
+                {
+                    newNode.next = top;
+                    top = newNode;
+                }
+            }
+            public void pop()
+            {
+                if (isEmpty())
+                    return;
+                Node temp = top;
+                top = top.next;
+                temp = null;
+            }
+            public bool isEmpty()
+            {
+                return (top == null);
+            }
+        }
         static void Main(string[] args)
         {
-            Stack<int> stackObj = new Stack<int>();
-            stackObj.Push(1);
-            stackObj.Push(2);
-            stackObj.Push(3);
-            stackObj.Push(4);
-            stackObj.Pop();
-            var poppedValue = stackObj.Pop();
-            Console.WriteLine(stackObj.Peek());
-            var isEmpty = stackObj.IsEmpty();
-            Console.WriteLine(isEmpty);
-        }
-        public class Stack<T>
-        {
-            private List<T> data;
-            private int top;
-            private int capacity;
-
-            public Stack()
-            {
-                data = new List<T>();
-                top = -1;
-                capacity = 0;
-            }
-
-            public void Push(T item)
-            {
-                capacity++;
-                top++;
-                data.Add(item);
-            }
-
-            public T Pop()
-            {
-                if (top == -1)
-                {
-                    Console.WriteLine("Stack is empty");
-                    return default(T);
-                }
-
-                T item = data[top];
-                data.RemoveAt(top--);
-                capacity--;
-
-                return item;
-            }
-
-            public T Peek()
-            {
-                if (top == -1)
-                {
-                    Console.WriteLine("Stack is empty");
-                    return default(T);
-                }
-
-                return data[top];
-            }
-            public void Display()
-            {
-                foreach (var item in data)
-                {
-                    Console.WriteLine(item);
-                }
-            }
-            public bool IsEmpty()
-            {
-                return (top == -1);
-            }
+            Stack stackObj = new Stack();
+            stackObj.push(1);
+            stackObj.push(2);
+            stackObj.push(3);
+            stackObj.push(4);
+            stackObj.pop();
+            stackObj.pop();
+            Console.WriteLine(stackObj.isEmpty());
         }
     }
 }
+
 
 
 
