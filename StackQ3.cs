@@ -1,61 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace ConsoleApp1
 {
     internal class StackQ3
     {
-        public class Stack<T>
-        {
-            private List<T> data;
-            private int top;
-            private int capacity;
-
-            public Stack()
+            static void Main(string[] args)
             {
-                data = new List<T>();
-                top = -1;
-                capacity = 0;
+                Stack<int> stackObj = new Stack<int>();
+                stackObj.Push(3);
+                stackObj.Push(1);
+                stackObj.Push(4);
+                stackObj.Push(2);
+                stackObj.SortAscending();
             }
-            public void Push(T item)
+            public class Stack<T>
             {
-                capacity++;
-                top++;
-                data.Add(item);
-            }
-
-            public void SortAscending()
-            {
-                T temp;
-                for (int i = 0; i < top; i++)
+                private List<T> data = new List<T>();
+                public void Push(T item)
                 {
-                    for (int j = i + 1; j <= top; j++)
+                    data.Add(item);
+                }
+                public void SortAscending()
+                {
+                    data.Sort();
+                    foreach (var item in data)
                     {
-                        if (Comparer<T>.Default.Compare(data[i], data[j]) > 0)
-                        {
-                            temp = data[i];
-                            data[i] = data[j];
-                            data[j] = temp;
-                        }
+                        Console.WriteLine(item);
                     }
                 }
-                foreach (var item in data)
-                {
-                    Console.WriteLine(item);
-                }
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Stack<int> stackObj = new Stack<int>();
-            stackObj.Push(3);
-            stackObj.Push(1);
-            stackObj.Push(4);
-            stackObj.Push(2);
-            stackObj.SortAscending();
-        }
     }
+}
 }
 
 
