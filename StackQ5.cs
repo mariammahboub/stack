@@ -5,45 +5,41 @@ namespace ConsoleApp1
 {
     internal class StackQ5<T>
     {
-        private List<T> data;
-        private int top;
-        private int capacity;
-
-        public StackQ5()
+        public class Stack
         {
-            data = new List<T>();
-            top = -1;
-            capacity = 0;
-        }
-
-        public void Push(T item)
-        {
-            capacity++;
-            top++;
-            data.Add(item);
-        }
-
-        public void MinNumber()
-        {
-            T temp = data[0];
-            for (int i = 0; i <= top; i++)
+            private List<int> data;
+            private int top;
+            public Stack()
             {
-                if (Comparer<T>.Default.Compare(data[i], temp) > 0)
-                {
-                    temp = data[i];
-                }
+                data = new List<int>();
+                top = -1;
             }
-            Console.WriteLine(temp);
-        }
+            public void Push(int item)
+            {
+                data.Add(item);
+                top++;
+            }
+            public void MinNumber()
+            {
+                int temp = data[0];
+                for (int i = 1; i <= top; i++)
+                {
 
-        static void Main(string[] args)
-        {
-            StackQ5<int> stackObj = new StackQ5<int>();
-            stackObj.Push(4);
-            stackObj.Push(2);
-            stackObj.Push(6);
-            stackObj.Push(1);
-            stackObj.MinNumber();
-        }
+                    if (temp > data[i])
+                    {
+                        temp = data[i];
+                    }                    
+                }
+                Console.WriteLine(temp);
+            }
+            static void Main(string[] args)
+            {
+                Stack stackObj = new Stack();
+                stackObj.Push(3);
+                stackObj.Push(5);
+                stackObj.Push(10);
+                stackObj.Push(7);
+                stackObj.MinNumber();
+            }
     }
 }
