@@ -1,4 +1,11 @@
-        public class Stack
+﻿using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp1
+{
+    internal class StackQ8
+    {
+            public class Stack
         {
             private List<int> data;
             private int top;
@@ -37,4 +44,7 @@
                 stack.Push(3);
                 Console.WriteLine(stack.CheckNumber(7));
             }
-          
+            }
+    }
+}
+
