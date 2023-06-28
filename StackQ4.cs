@@ -1,52 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace ConsoleApp1
 {
     internal class StackQ4
     {
-        public class Stack<T>
+        public class Stack
         {
-            private List<T> data;
+            private List<int> data;
             private int top;
-            private int capacity;
-
             public Stack()
             {
-                data = new List<T>();
+                data = new List<int>();
                 top = -1;
-                capacity = 0;
             }
-
-            public void Push(T item)
+            public void Push(int item)
             {
-                capacity++;
-                top++;
                 data.Add(item);
+                top++;
             }
-
             public void MaxNumber()
             {
-                T temp = data[0];
-                for (int i = 0; i <= top; i++)
+                int temp = data[0];
+                for (int i = 1; i <= top; i++)
                 {
-                    if (Comparer<T>.Default.Compare(temp, data[i]) < 0)
+
+                    if (temp < data[i])
                     {
                         temp = data[i];
-                    }
+                    }                    
                 }
                 Console.WriteLine(temp);
             }
-        }
-
-        static void Main(string[] args)
-        {
-            Stack<int> stackObj = new Stack<int>();
-            stackObj.Push(3);
-            stackObj.Push(5);
-            stackObj.Push(2);
-            stackObj.Push(7);
-            stackObj.MaxNumber();
+            static void Main(string[] args)
+            {
+                Stack stackObj = new Stack();
+                stackObj.Push(3);
+                stackObj.Push(5);
+                stackObj.Push(10);
+                stackObj.Push(7);
+                stackObj.MaxNumber();
+            }
         }
     }
 }
