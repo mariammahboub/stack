@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
-namespace test
+namespace ConsoleApp1
 {
+    internal class StackQ9
+    {
     public class StackDemo
     {
         private List<int> data;
@@ -49,5 +50,6 @@ namespace test
             Console.WriteLine("Duplicates removed.");
         }
     }
+}
 }
 
