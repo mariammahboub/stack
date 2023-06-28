@@ -19,18 +19,7 @@ namespace ConsoleApp1
             Console.WriteLine("At least one satisfy the condition (positive): " + allPositive);
             bool allNumbers = IsNum(stack);
             Console.WriteLine("At least one satisfy the condition (numbers only): " + allNumbers);
-            bool hasEvenNumber = HasEvenNumber(stack);
-            Console.WriteLine("At least one even number in the stack: " + hasEvenNumber);
-        }
-
-        static bool HasEvenNumber(Stack<int> stack)
-        {
-            foreach (int element in stack)
-            {
-                if (element % 2 == 0)
-                    return true;
-            }
-            return false;
+ 
         }
         static bool IsPositive(Stack<int> stack)
         {
