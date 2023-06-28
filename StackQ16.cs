@@ -1,3 +1,8 @@
+﻿using System;
+using System.Collections.Generic;
+namespace ConsoleApp1
+{
+    internal class StackQ14{
             public class Stack
             {
                 private List<int> data;
@@ -49,3 +54,5 @@
             }
         }
         }
+}
+
