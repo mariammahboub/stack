@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 namespace ConsoleApp1
 {
-    internal class Program
+    internal class StackQ9
     {
         public class Stack1
         {
@@ -123,3 +123,4 @@ namespace ConsoleApp1
         }
     }
 }
+
