@@ -5,54 +5,38 @@ namespace ConsoleApp1
 {
     internal class StackQ9
     {
-        public class Stack<T>
+        public class Stack
         {
-            private List<T> data;
+            private List<int> data;
             private int top;
             private int capacity;
-
             public Stack()
             {
-                data = new List<T>();
+                data = new List<int>();
                 top = -1;
                 capacity = 0;
             }
-            public void RemoveDuplicates()
-            {
-                List<T> temp = new List<T>();
-                Stack<T> theTemp = new Stack<T>();
 
-                for (int i = 0; i <= top; i++)
-                {
-                    if (!temp.Contains(data[i]))
-                    {
-                        temp.Add(data[i]);
-                        theTemp.Push(data[i]);
-                    }
-                }
-                data = theTemp.data;
-                top = theTemp.top;
-                capacity = theTemp.capacity;
-                foreach (T item in data)
-                {
-                    Console.WriteLine(item);
-                }
-            }
-            public void Push(T item)
+            public void Push(int item)
             {
                 capacity++;
                 top++;
                 data.Add(item);
             }
+
+            public int Count()
+            {
+                return top + 1;
+            }
         }
-        static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
-            Stack<int> stackObj = new Stack<int>();
-            stackObj.Push(1);
-            stackObj.Push(2);
-            stackObj.Push(3);
-            stackObj.Push(2);
-            stackObj.RemoveDuplicates();
+            Stack stack = new Stack();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            Console.WriteLine(stack.Count());
         }
     }
 }
