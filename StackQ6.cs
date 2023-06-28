@@ -5,50 +5,50 @@ namespace ConsoleApp1
 {
     internal class StackQ6
     {
-        public class Stack<T>
-        {
-            private List<T> data;
-            private int top;
-            private int capacity;
-
-            public Stack()
+            public class Stack
             {
-                data = new List<T>();
-                top = -1;
-                capacity = 0;
-            }
-
-            public void Push(T item)
-            {
-                capacity++;
-                top++;
-                data.Add(item);
-            }
-
-            public Stack<T> DeleteAtPosition(T num)
-            {
-                Stack<T> temp = new Stack<T>();
-
-                for (int i = 0; i <= top; i++)
+                private List<int> data;
+                private int top;
+                private int capacity;
+                public Stack()
                 {
-                    if (!EqualityComparer<T>.Default.Equals(num, data[i]))
+                    data = new List<int>();
+                    top = -1;
+                    capacity = 0;
+                }
+                public void Push(int item)
+                {
+                    data.Add(item);
+                    top++;
+                }
+                public List<int> DeleteAtPosition(int num)
+                {
+                    List<int> temp = new List<int>();
+
+                    for (int i = 0; i <= top; i++)
                     {
-                        temp.Push(data[i]);
+                        if (num != data[i])
+                        {
+                            temp.Add(data[i]);
+                        }
                     }
+
+                    return temp;
                 }
 
-                return temp;
-            }
-        }
-        static void Main(string[] args)
-        {
-            Stack<int> stackObj = new Stack<int>();
-            stackObj.Push(1);
-            stackObj.Push(2);
-            stackObj.Push(3);
-            stackObj.Push(4);
-            stackObj.DeleteAtPosition(2);
-        }
+                static void Main(string[] args)
+                {
+                    Stack stackObj = new Stack();
+                    stackObj.Push(1);
+                    stackObj.Push(2);
+                    stackObj.Push(3);
+                    stackObj.Push(4);
+                    List<int> result = stackObj.DeleteAtPosition(2);
+                    foreach (int item in result)
+                    {
+                        Console.WriteLine(result);
+                    }
+                }
     }
 }
 
