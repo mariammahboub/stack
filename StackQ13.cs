@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 namespace ConsoleApp1
 {
+    internal class StackQ2{
     class Program
     {
         static void Main(string[] args)
@@ -42,4 +43,5 @@ namespace ConsoleApp1
             return bottomElement;
         }
     }
+}
 }
