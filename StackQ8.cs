@@ -5,30 +5,40 @@ namespace ConsoleApp1
 {
     internal class StackQ8
     {
-        public class Stack<T>
+        static void Main()
         {
-            private List<T> data;
-            private int top;
-            private int capacity;
-
-            public Stack()
+            Stack<int> stack = new Stack<int>();
+            stack.Push(3);
+            stack.Push(7);
+            stack.Push(5);
+            stack.Push(2);
+            stack.Push(9);
+            Console.WriteLine("Original Stack:");
+            PrintStack(stack);
+            int elementToRemove = 5;
+            RemoveElementFromStack(stack, elementToRemove);
+            Console.WriteLine("\nStack after removing {0}:", elementToRemove);
+            PrintStack(stack);
+        }
+        static void PrintStack(Stack<int> stack)
+        {
+            foreach (int item in stack)
             {
-                data = new List<T>();
-                top = -1;
-                capacity = 0;
+                Console.Write(item + " ");
             }
+            Console.WriteLine();
+        }
 
-            public bool CheckNumber(T value)
+        static void RemoveElementFromStack(Stack<int> stack, int element)
+        {
+            List<int> tempList = stack.ToList();
+            tempList.RemoveAll(item => item == element);
+            stack.Clear();
+            foreach (int item in tempList)
             {
-                foreach (T item in data)
-                {
-                    if (EqualityComparer<T>.Default.Equals(item, value))
-                    {
-                        return true;
-                    }
-                }
-                return false;
+                stack.Push(item);
             }
         }
+        }
     }
-}
+
