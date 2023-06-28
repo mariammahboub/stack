@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-
-namespace test
+namespace ConsoleApp1
 {
-    public class StackDemo
-    {
+    internal class StackQ10{
     class Program
     {
         static void Main()
