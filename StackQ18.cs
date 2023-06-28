@@ -1,7 +1,7 @@
 using System;
 namespace ConsoleApp1
 {
-    internal class StackQ118
+    internal class StackQ18
     {
         class Program
         {
