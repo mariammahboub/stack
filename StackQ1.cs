@@ -10,39 +10,46 @@ namespace ConsoleApp1
         }
         public class Stack
         {
-            private Node top = null;
-
+            private int[] data;
+            private int top;
+            public Stack()
+            {
+                data = new int[100]; // Adjust the size as needed
+                top = -1;
+            }
             public void Push(int value)
             {
-                Node newNode = new Node();
-                newNode.data = value;
-                if (IsEmpty())
+                if (top == data.Length - 1)
                 {
-                    newNode.next = null;
+                    Console.WriteLine("Stack is full");
+                    return;
                 }
-                else
-                {
-                    newNode.next = top;
-                    top = newNode;
-                }
+                top++;
+                data[top] = value;
             }
             public void Pop()
             {
-                if (IsEmpty())
+                if (top == -1)
+                {
+                    Console.WriteLine("Stack is empty");
                     return;
-                Node temp = top;
-                top = top.next;
-                temp = null;
+                }
+                top--;
             }
+
             public bool IsEmpty()
             {
-                return (top == null);
+                return (top == -1);
             }
             public int Peek()
             {
-                if (IsEmpty())
-                    throw new InvalidOperationException("Stack is empty");
-                return top.data;
+                if (top == -1)
+                {
+                    Console.WriteLine("Stack is empty");
+                    return -1;
+                }
+
+                return data[top];
             }
         }
         static void Main(string[] args)
