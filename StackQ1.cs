@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 namespace ConsoleApp1
 {
     internal class StackQ1
     {
-            public class Node
+        public class Node
         {
             public int data;
             public Node next;
@@ -12,11 +12,11 @@ namespace ConsoleApp1
         {
             private Node top = null;
 
-            public void push(int value)
+            public void Push(int value)
             {
                 Node newNode = new Node();
                 newNode.data = value;
-                if (isEmpty())
+                if (IsEmpty())
                 {
                     newNode.next = null;
                 }
@@ -26,34 +26,36 @@ namespace ConsoleApp1
                     top = newNode;
                 }
             }
-            public void pop()
+            public void Pop()
             {
-                if (isEmpty())
+                if (IsEmpty())
                     return;
                 Node temp = top;
                 top = top.next;
                 temp = null;
             }
-            public bool isEmpty()
+            public bool IsEmpty()
             {
                 return (top == null);
+            }
+            public int Peek()
+            {
+                if (IsEmpty())
+                    throw new InvalidOperationException("Stack is empty");
+                return top.data;
             }
         }
         static void Main(string[] args)
         {
             Stack stackObj = new Stack();
-            stackObj.push(1);
-            stackObj.push(2);
-            stackObj.push(3);
-            stackObj.push(4);
-            stackObj.pop();
-            stackObj.pop();
-            Console.WriteLine(stackObj.isEmpty());
+            stackObj.Push(1);
+            stackObj.Push(2);
+            stackObj.Push(3);
+            stackObj.Push(4);
+            stackObj.Pop();
+            stackObj.Pop();
+            Console.WriteLine(stackObj.Peek());
+            Console.WriteLine(stackObj.IsEmpty());
         }
     }
 }
-
-
-
-
-
