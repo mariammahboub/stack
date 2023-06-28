@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-class Program
+namespace ConsoleApp1
 {
+    internal class StackQ14{
     static void Main(string[] args)
     {
         Stack<int> stack = new Stack<int>();
@@ -37,4 +38,5 @@ class Program
         }
         Console.WriteLine();
     }
+}
 }
