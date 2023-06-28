@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 namespace ConsoleApp1
 {
-    internal class StackQ9
+    internal class StackQ17
     {
         public class Stack1
         {
@@ -119,7 +119,7 @@ namespace ConsoleApp1
             stack2.Push(6);
 
             stack2.MergeStack(stack1);
-            Console.WriteLine(string.Join(", ", stack2.GetData()));
+            Console.WriteLine(string.Join(" \n ", stack2.GetData()));
         }
     }
 }
