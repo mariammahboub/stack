@@ -1,61 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace ConsoleApp1
 {
     internal class StackQ7
     {
-        public class Stack<T>
-        {
-            private List<T> data;
-            private int top;
-            private int capacity;
-
-            public Stack()
+          static void Main()
             {
-                data = new List<T>();
-                top = -1;
-                capacity = 0;
+                Stack<int> stack = new Stack<int>();
+                stack.Push(1);
+                stack.Push(2);
+                stack.Push(3);
+                stack.Push(4);
+                Console.WriteLine("Stack before removal:");
+                PrintStack(stack);
+                RemoveAllElements(stack);
+                Console.WriteLine("\nStack after removal:");
+                PrintStack(stack);
             }
-
-            public void Push(T item)
+            static void RemoveAllElements<T>(Stack<T> stack)
             {
-                capacity++;
-                top++;
-                data.Add(item);
+                stack.Clear();
             }
-
-            public T Pop()
+            static void PrintStack<T>(Stack<T> stack)
             {
-                if (top == -1)
+                foreach (var item in stack)
                 {
-                    throw new InvalidOperationException("Stack is empty");
+                    Console.WriteLine(item);
                 }
-
-                T item = data[top];
-                data.RemoveAt(top--);
-                capacity--;
-
-                return item;
-            }
-
-            public void Count()
+            if (stack.Count == 0)
             {
-                Console.WriteLine(top + 1);
-            }
-
-            public void SpecifiedCount(T value)
-            {
-                int count = 0;
-                foreach (T item in data)
-                {
-                    if (EqualityComparer<T>.Default.Equals(item, value))
-                    {
-                        count++;
-                    }
-                }
-                Console.WriteLine(count);
+                Console.WriteLine("Stack is empty\n");
             }
         }
+        }
     }
-}
+
