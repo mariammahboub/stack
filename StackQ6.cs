@@ -46,7 +46,7 @@ namespace ConsoleApp1
                     List<int> result = stackObj.DeleteAtPosition(2);
                     foreach (int item in result)
                     {
-                        Console.WriteLine(result);
+                        Console.WriteLine(item);
                     }
                 }
     }
