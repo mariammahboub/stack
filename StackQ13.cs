@@ -26,22 +26,20 @@ namespace ConsoleApp1
                     Console.WriteLine("Stack is empty");
                     return -1;
                 }
-                int bottomElement = stack.Peek();
+                int topElement = stack.Peek();
                 Stack<int> tempStack = new Stack<int>();
                 while (stack.Count > 0)
                 {
                     int element = stack.Pop();
-
                     if (stack.Count == 0)
-                        bottomElement = element;
-
-                    tempStack.Push(element);
+                        topElement = element;
+                         tempStack.Push(element);
                 }
                 while (tempStack.Count > 0)
                 {
                     stack.Push(tempStack.Pop());
                 }
-                return bottomElement;
+                return topElement;
             }
         }
     }
