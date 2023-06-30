@@ -9,7 +9,6 @@ namespace ConsoleApp1
         {
             private List<int> data;
             private int top;
-            private int capacity;
             public Stack()
             {
                 data = new List<int>();
@@ -19,7 +18,6 @@ namespace ConsoleApp1
 
             public void Push(int item)
             {
-                capacity++;
                 top++;
                 data.Add(item);
             }
